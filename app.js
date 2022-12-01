@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config()
 const sauce = require('./models/sauce');
 const userRoutes = require('./routes/user');
 
-mongoose.connect('mongodb+srv://Storm:159@cluster0.e6fqxmp.mongodb.net/test?',
+mongoose.connect(process.env.SECRET_MDB,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
